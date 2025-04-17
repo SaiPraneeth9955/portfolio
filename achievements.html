@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Projects</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+            line-height: 1.6;
+        }
+        
+        hr {
+            border: 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #6c757d, transparent);
+            margin: 30px 0;
+        }
+        
+        #projects {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        #projects h2 {
+            color: #343a40;
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #17a2b8;
+        }
+        
+        #projects p {
+            color: #6c757d;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        #projects ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        #projects li {
+            background-color: #f1f8fe;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            border-left: 4px solid #17a2b8;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        #projects li:hover {
+            transform: translateX(10px);
+            background-color: #e2f3ff;
+            box-shadow: 3px 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .project-tech {
+            display: block;
+            font-size: 0.9em;
+            color: #6c757d;
+            margin-top: 5px;
+        }
+        
+        .home-btn {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        button {
+            background-color: #17a2b8;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        button:hover {
+            background-color: #138496;
+            transform: scale(1.1);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+
+    <hr>
+    <section id="projects">
+        <h2>My Projects</h2>
+        <p>Here are some of the projects I've worked on:</p>
+        <ul>
+            <li>🏥 Pharmacy Management System (DBMS)
+                <span class="project-tech">Technologies: MySQL, PHP, HTML/CSS</span>
+            </li>
+            <li>♟️ Chess with AI Opponent
+                <span class="project-tech">Technologies: Python, Minimax Algorithm, Pygame</span>
+            </li>
+            <li>🏎️ Car Racing Game
+                <span class="project-tech">Technologies: C++ with Graphics</span>
+            </li>
+            <li>🎨 Personal Portfolio Website
+                <span class="project-tech">Technologies: HTML, CSS, JavaScript</span>
+            </li>
+            <li>💻 C++ Programming Projects
+                <span class="project-tech">Various data structures and algorithms implementations</span>
+            </li>
+        </ul>
+    </section>
+    <hr>
+
+    <div class="home-btn">
+        <a href="portfolio.2.html"><button>Back to Home</button></a>
+    </div>
+
+</body>
+</html>

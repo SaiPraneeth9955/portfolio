@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f8ff;
+        }
+        
+        h2 {
+            color: #2a52be;
+            text-align: center;
+        }
+        
+        .contact-info {
+            background-color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 5px #ccc;
+        }
+        
+        form {
+            background-color: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px #ccc;
+        }
+        
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        textarea {
+            height: 100px;
+        }
+        
+        .radio-group {
+            margin: 15px 0;
+        }
+        
+        .radio-option {
+            display: inline-block;
+            margin-right: 15px;
+        }
+        
+        button {
+            background-color: #2a52be;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: transform 0.3s;
+        }
+        
+        button:hover {
+            background-color: #1a3a8e;
+            transform: scale(1.1);
+        }
+        
+        .home-btn {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .error {
+            color: red;
+            font-size: 0.8em;
+            margin-top: -8px;
+            margin-bottom: 10px;
+        }
+        
+        .success {
+            color: green;
+            text-align: center;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Contact Me</h2>
+    
+    <div class="contact-info">
+        <p><strong>Email:</strong> saipraneeth_surepalli@srmap.edu.in</p>
+        <p><strong>Phone:</strong> +91 9553251245</p>
+    </div>
+
+    <form id="contactForm">
+        <div id="successMessage" class="success" style="display: none;"></div>
+        
+        <label for="email">Your Email:</label>
+        <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+        <div id="emailError" class="error"></div>
+        
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+        <div id="messageError" class="error"></div>
+        
+        <div class="radio-group">
+            <label>Would you like a reply?</label>
+            <div class="radio-option">
+                <input type="radio" id="yes" name="reply" value="yes" required>
+                <label for="yes">Yes</label>
+            </div>
+            <div class="radio-option">
+                <input type="radio" id="no" name="reply" value="no">
+                <label for="no">No</label>
+            </div>
+            <div id="replyError" class="error"></div>
+        </div>
+        
+        <button type="submit">Send Message</button>
+    </form>
+
+    <div class="home-btn">
+        <a href="portfolio.2.html"><button>Back to Home</button></a>
+    </div>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+            
+            // Reset previous error messages
+            document.getElementById('emailError').textContent = '';
+            document.getElementById('messageError').textContent = '';
+            document.getElementById('replyError').textContent = '';
+            
+            // Get form values
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            const replySelected = document.querySelector('input[name="reply"]:checked');
+            
+            // Validate email
+            if (!email) {
+                document.getElementById('emailError').textContent = 'Email is required';
+            } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                document.getElementById('emailError').textContent = 'Please enter a valid email address';
+            }
+            
+            // Validate message
+            if (!message) {
+                document.getElementById('messageError').textContent = 'Message is required';
+            } else if (message.length < 10) {
+                document.getElementById('messageError').textContent = 'Message should be at least 10 characters long';
+            }
+            
+            // Validate radio buttons
+            if (!replySelected) {
+                document.getElementById('replyError').textContent = 'Please select an option';
+            }
+            
+            // If all validations pass
+            if (email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) && 
+                message && message.length >= 10 && 
+                replySelected) {
+                
+                // Show success message
+                const successMessage = document.getElementById('successMessage');
+                successMessage.textContent = 'Your message has been sent successfully!';
+                successMessage.style.display = 'block';
+                
+                // Reset form
+                document.getElementById('contactForm').reset();
+                
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 5000);
+            }
+        });
+    </script>
+
+</body>
+</html>
